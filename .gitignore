@@ -1,3 +1,4 @@
 # ingore list
 padm-env/
+padm-env-gpu
 .ipynb_checkpoints
