@@ -1,4 +1,18 @@
 # ingore list
+
+# directories
 padm-env/
-padm-env-gpu
-.ipynb_checkpoints
+padm-env-gpu/
+.ipynb_checkpoints/
+images/output/
+images/output-intel/
+images/output-endless/
+output-test/
+__pycache__/
+
+# files
+neural-network-transfer-Test.ipynb
+neural-network-transfer-Test
+neural-network-transfer-Test-Copy1
+neural-network-transfer-Test-Copy1.ipynb
+tree.md
