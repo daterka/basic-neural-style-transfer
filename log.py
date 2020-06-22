@@ -31,8 +31,8 @@ class logger:
         os.mkdir(self.path_plots)
 
         # Copy files
-        self.__copy_file__(path_to_source_image, self.path, 'source_image')
-        self.__copy_file__(path_to_style_image, self.path, 'style_image')
+        self.__copy_file__(path_to_source_image, self.path, 'content')
+        self.__copy_file__(path_to_style_image, self.path, 'style')
 
     def __copy_file__(self, source, destination_dir, name):
         file_path, file_extension = os.path.splitext(source)
@@ -46,6 +46,15 @@ class logger:
         self.data_array.append(np.array([iteration_number, total_loss, content_loss, style_loss, iteration_time]))
         if image is not None:
             image.save(self.path_process + str(iteration_number) + '.jpg')
+            
+    def save_image_jpg(self, iteration_number=-1, image=None):
+        if image is not None:
+            if iteration_number >= 0:
+                image.save(self.path_process + str(iteration_number) + '.jpg')
+            else:
+                image.save(self.path + 'output.jpg')
+        else:
+            print('Saving image failed! No Image provided.')
 
     def save_data_to_csv(self):
         # Zapisuje zebrane dane o iteracjach do pliku
@@ -80,4 +89,5 @@ class logger:
         plt.ylabel(y_label)
 
         plt.savefig(self.path_plots + title + '.png')
-        plt.show()
+        plt.clf()
+        # plt.show()
